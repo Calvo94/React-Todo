@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Route, Router, IndexRoute, hashHistory} from 'react-router';
+import Main from 'Main';
 
-var objOne = {
-  name: 'Andrew',
-  location: 'Philadelphia'
-}
+// Load foundation
+require('foundation-sites/dist/foundation.min.css')
+$(document).foundation();
 
-var objTwo = {
-  age: 25,
-  ...objOne
-}
-
-console.log(objTwo);
+// app css
+require('applicationStyles')
 
 ReactDOM.render(
-  <h1>Boilerplate app!</h1>,
+  <Router history={hashHistory}>
+    <Route path="/" component={Main}>
+    </Route>
+  </Router>,
   document.getElementById('app')
 );
