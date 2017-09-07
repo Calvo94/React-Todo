@@ -23,7 +23,7 @@ plugins: [
     modules: [__dirname, 'node_modules'],
     alias: {
       Main:'app/components/Main.jsx',
-      applicationStyles: 'app/styles/app.scss'
+      applicationStyles: 'app/styles/app.scss',
     },
     extensions: ['.js', '.jsx']
   },
