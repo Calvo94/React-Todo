@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoList from 'TodoList';
+import TodoForm from 'TodoForm';
 
 class TodoApp extends Component {
   state={
@@ -22,11 +23,15 @@ class TodoApp extends Component {
       },
     ]
   }
+  handleAddTodo(text) {
+    alert('new todo: '+text);
+  }
   render() {
     const {todos} = this.state;
     return (
       <div>
         <TodoList todos={todos}/>
+        <TodoForm handleAddTodo={this.handleAddTodo.bind(this)} />
       </div>
     );
   }
