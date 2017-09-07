@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jQuery';
+import TodoApp from 'TodoApp';
 
 var expect= require('expect');
 
-describe('App', () => {
-  it('should properly run tests', () => {
-    expect(1).toBe(1);
+describe('TodoApp', () => {
+  it('should exist', () => {
+      expect(TodoApp).toExist();
   });
 });
