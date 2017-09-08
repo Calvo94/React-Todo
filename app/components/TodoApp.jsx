@@ -51,9 +51,17 @@ class TodoApp extends Component {
     var filterTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
       <div>
-        <TodoSearch onSearch={this.handleSearch.bind(this)}/>
-        <TodoList todos={filterTodos} onToggle={this.handleToggle.bind(this)}/>
-        <TodoForm handleAddTodo={this.handleAddTodo.bind(this)} />
+        <h1 className="page-title">Todo App</h1>
+
+        <div className="row">
+          <div className="small-centered small-11 medium-6 large-5 columns">
+            <div className="container">
+              <TodoSearch onSearch={this.handleSearch.bind(this)}/>
+              <TodoList todos={filterTodos} onToggle={this.handleToggle.bind(this)}/>
+              <TodoForm handleAddTodo={this.handleAddTodo.bind(this)} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
