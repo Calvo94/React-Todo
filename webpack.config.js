@@ -21,7 +21,7 @@ plugins: [
     filename: './public/bundle.js'
   },
   resolve: {
-    modules: [__dirname, 'node_modules','./app/components'],
+    modules: [__dirname, 'node_modules','./app/components','./app/api'],
     alias: {
       Main:'app/components/Main.jsx',
       applicationStyles: 'app/styles/app.scss',

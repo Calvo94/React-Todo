@@ -3,33 +3,13 @@ import TodoList from 'TodoList';
 import TodoForm from 'TodoForm';
 import TodoSearch from 'TodoSearch';
 import uuid from 'node-uuid';
+import TodoAPI from 'TodoAPI';
 
 class TodoApp extends Component {
   state={
     showCompleted: false,
     searchText:'',
-    todos: [
-      {
-        id:uuid(),
-        text: 'Walk the dog',
-        completed:false
-      },
-      {
-        id:uuid(),
-        text: 'Clean the yard',
-        completed:true
-      },
-      {
-        id:uuid(),
-        text: 'Leave mail on porch',
-        completed:true
-      },
-      {
-        id:uuid(),
-        text: 'Play video games',
-        completed:false
-      },
-    ]
+    todos: TodoAPI.getTodos()
   }
   handleToggle(id){
     var updatedTodos = this.state.todos.map((todo) => {
@@ -39,6 +19,9 @@ class TodoApp extends Component {
       return todo;
     });
     this.setState({todos: updatedTodos})
+  }
+  componentDidUpdate() {
+    TodoAPI.setTodos(this.state.todos);
   }
   handleSearch(showCompleted, searchText) {
     this.setState({
