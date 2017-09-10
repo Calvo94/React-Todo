@@ -17,6 +17,14 @@ export var Add_Todo = (text) => {
     text
   }
 }
+
+export var Add_Todos = (todos) => {
+  return {
+    type : 'ADD_TODOS',
+    todos
+  };
+};
+
 export var Remove_Todo = (id) => {
   return {
     type:'REMOVE_TODO',

@@ -3,37 +3,11 @@ import TodoList from 'TodoList';
 import TodoForm from 'TodoForm';
 import TodoSearch from 'TodoSearch';
 import uuid from 'node-uuid';
-import TodoAPI from 'TodoAPI';
 import moment from 'moment';
 
 class TodoApp extends Component {
-  state={
-    showCompleted: false,
-    searchText:'',
-    todos: TodoAPI.getTodos()
-  }
-  componentDidUpdate() {
-    TodoAPI.setTodos(this.state.todos);
-  }
-
-  handleAddTodo(text) {
-    this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          id: uuid(),
-          text:text,
-          completed:false,
-          createdAt: moment().unix(),
-          completedAt: undefined
-        }
-      ]
-    })
-  }
 
   render() {
-    const {todos, showCompleted, searchText} = this.state;
-    var filterTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
       <div>
         <h1 className="page-title">Todo App</h1>
@@ -43,7 +17,7 @@ class TodoApp extends Component {
             <div className="container">
               <TodoSearch/>
               <TodoList />
-              <TodoForm handleAddTodo={this.handleAddTodo.bind(this)} />
+              <TodoForm />
             </div>
           </div>
         </div>

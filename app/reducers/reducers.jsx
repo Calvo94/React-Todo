@@ -33,6 +33,8 @@ export var todoReducer = ( state = [] , action) => {
             completedAt: undefined
           }
         ]
+    case 'ADD_TODOS':
+      return [...state,...action.todos]
     case 'REMOVE_TODO':
       return state.filter((todo) => todo.id !== action.id);
     case 'TOGGLE_TODO':
