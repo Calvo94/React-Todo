@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-
-class TodoForm extends Component {
+import {connect} from 'react-redux';
+import {Add_Todo} from 'actions';
+export class TodoForm extends Component {
   onFormSubmit(e) {
       e.preventDefault();
-
+      var {dispatch} = this.props;
       var todo = this.refs.todo.value;
 
       if(todo.length>0) {
         this.refs.todo.value='';
-        this.props.handleAddTodo(todo);
+        dispatch(Add_Todo(todo));
+      } else {
+        this.refs.todo.focus();
       }
   }
   render () {
@@ -22,4 +25,4 @@ class TodoForm extends Component {
   )}
 }
 
-module.exports = TodoForm;
+export default connect()(TodoForm);

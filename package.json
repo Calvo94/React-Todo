@@ -1,5 +1,5 @@
 {
-  "name": "TimerApp",
+  "name": "TodoApp",
   "version": "1.0.0",
   "description": "Simple React App",
   "main": "index.js",
@@ -41,6 +41,7 @@
     "node-sass": "^4.5.3",
     "node-uuid": "^1.4.8",
     "react-addons-test-utils": "^15.6.0",
+    "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",

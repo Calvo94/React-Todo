@@ -12,16 +12,6 @@ class TodoApp extends Component {
     searchText:'',
     todos: TodoAPI.getTodos()
   }
-  handleToggle(id){
-    var updatedTodos = this.state.todos.map((todo) => {
-      if(todo.id === id) {
-        todo.completed = !todo.completed;
-        todo.completedAt = todo.completed ? moment().unix() : undefined;
-      }
-      return todo;
-    });
-    this.setState({todos: updatedTodos})
-  }
   componentDidUpdate() {
     TodoAPI.setTodos(this.state.todos);
   }
@@ -57,7 +47,7 @@ class TodoApp extends Component {
           <div className="small-centered small-11 medium-6 large-5 columns">
             <div className="container">
               <TodoSearch onSearch={this.handleSearch.bind(this)}/>
-              <TodoList todos={filterTodos} onToggle={this.handleToggle.bind(this)}/>
+              <TodoList />
               <TodoForm handleAddTodo={this.handleAddTodo.bind(this)} />
             </div>
           </div>
