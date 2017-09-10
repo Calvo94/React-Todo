@@ -11,10 +11,10 @@ export var toggleShowCompleted = (showCompleted) => {
   }
 }
 
-export var Add_Todo = (todo) => {
+export var Add_Todo = (text) => {
   return {
     type : 'ADD_TODO',
-    todo
+    text
   }
 }
 export var Remove_Todo = (id) => {
