@@ -9,9 +9,6 @@ store.subscribe(() => {
   console.log('New state', store.getState())
 });
 
-store.dispatch(Add_Todo('Clean the yard'));
-store.dispatch(setSearchText('yard'));
-store.dispatch(toggleShowCompleted());
 // Load foundation
 require('foundation-sites/dist/foundation.min.css')
 $(document).foundation();

@@ -15,12 +15,7 @@ class TodoApp extends Component {
   componentDidUpdate() {
     TodoAPI.setTodos(this.state.todos);
   }
-  handleSearch(showCompleted, searchText) {
-    this.setState({
-      showCompleted: showCompleted,
-      searchText: searchText.toLowerCase()
-    })
-  }
+
   handleAddTodo(text) {
     this.setState({
       todos: [
@@ -46,7 +41,7 @@ class TodoApp extends Component {
         <div className="row">
           <div className="small-centered small-11 medium-6 large-5 columns">
             <div className="container">
-              <TodoSearch onSearch={this.handleSearch.bind(this)}/>
+              <TodoSearch/>
               <TodoList />
               <TodoForm handleAddTodo={this.handleAddTodo.bind(this)} />
             </div>
