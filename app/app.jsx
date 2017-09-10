@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoApp from 'TodoApp';
 import {Provider} from 'react-redux';
-import { Add_Todo,setSearchText,toggleShowCompleted} from 'actions';
+import { Add_Todo,setSearchText,toggleShowCompleted,Add_Todos} from 'actions';
 import TodoAPI from 'TodoAPI';
 var store = require('configureStore').configure();
 
@@ -14,7 +14,7 @@ store.subscribe(() => {
 });
 
 var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(Add_Todos(initialTodos));
 // Load foundation
 require('foundation-sites/dist/foundation.min.css')
 $(document).foundation();
