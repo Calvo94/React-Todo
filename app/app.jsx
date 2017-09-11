@@ -20,7 +20,8 @@ var store = require('configureStore').configure();
 store.dispatch(startAddTodos());
 
 // Load foundation
-$(document).foundation();
+// require('foundation-sites/dist/foundation.min.css')
+// $(document).foundation();
 
 // app css
 require('applicationStyles')
