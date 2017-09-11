@@ -22,13 +22,6 @@ export var Add_Todo = (todo) => {
   }
 }
 
-export var Add_Todos = (todos) => {
-  return {
-    type : 'ADD_TODOS',
-    todos
-  };
-};
-
 export var startAddTodo = (text) => {
   return (dispatch, getState) => {
     var todo ={
@@ -48,15 +41,55 @@ export var startAddTodo = (text) => {
   };
 };
 
+export var Add_Todos = (todos) => {
+  return {
+    type : 'ADD_TODOS',
+    todos
+  };
+};
+
+
+export var startAddTodos = () => {
+  return (dispatch, getState) => {
+    var todosRef = firebaseRef.child('todos').once('value');
+    return todosRef.then((snapshot) => {
+      var todos = snapshot.val() || {};
+      var parsedTodos = [];
+      Object.keys(todos).forEach((todoId)=> {
+        parsedTodos.push({
+          id:todoId,
+          ...todos[todoId]
+        });
+      });
+      dispatch(Add_Todos(parsedTodos));
+    });
+  };
+};
+
 export var Remove_Todo = (id) => {
   return {
     type:'REMOVE_TODO',
     id
   }
 }
-export var toggleTodo = (id) => {
+
+export var updateTodo = (id, updates) => {
   return {
-    type:'TOGGLE_TODO',
-    id
+    type:'UPDATE_TODO',
+    id,
+    updates
   }
 }
+
+export var startToggleTodo = (id, completed) => {
+  return (dispatch, getState) => {
+    var todoRef = firebaseRef.child(`todos/${id}`);
+    var updates = {
+      completed,
+      completedAt: completed ? moment().unix() : null
+    };
+    return todoRef.update(updates).then(() => {
+      dispatch(updateTodo(id, updates));
+    });
+  };
+};

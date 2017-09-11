@@ -7,12 +7,13 @@ export class TodoList extends Component {
   render() {
     var {todos,showCompleted,searchText} = this.props;
     var renderTodos = () => {
-      if(todos.length === 0) {
+      var filtertodos = TodoAPI.filterTodos(todos,showCompleted,searchText);
+      if(filtertodos.length === 0) {
         return (
           <p className="container__message">Nothing to do</p>
         );
       }
-      return TodoAPI.filterTodos(todos,showCompleted,searchText).map((todo) => {
+      return filtertodos.map((todo) => {
         return (
           <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
         );
