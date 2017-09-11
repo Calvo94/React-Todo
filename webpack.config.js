@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
+process.env.NODE_ENV= process.env.NODE_ENV || 'development';
+
 module.exports = {
   entry: ['script-loader!jquery/dist/jquery.min.js',
   'script-loader!foundation-sites/dist/foundation.min.js',
@@ -13,6 +15,11 @@ plugins: [
   new webpack.ProvidePlugin({
     '$':'jquery',
     'jQuery':'jquery'
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      warnings: false
+    }
   })
 ],
 
@@ -53,5 +60,5 @@ plugins: [
 
     ],
   },
-  devtool: 'inline-source-map'
+  devtool: process.env.NODE_ENV == 'production' ? undefined : 'inline-source-map'
 };
