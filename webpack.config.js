@@ -5,6 +5,7 @@ process.env.NODE_ENV= process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: ['script-loader!jquery/dist/jquery.min.js',
+  'script-loader!foundation-sites/dist/foundation.min.js',
   './app/app.jsx',
 ],
 externals: {
