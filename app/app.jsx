@@ -4,6 +4,7 @@ import TodoApp from 'TodoApp';
 import {Provider} from 'react-redux';
 import { Add_Todo,setSearchText,toggleShowCompleted,Add_Todos} from 'actions';
 import TodoAPI from 'TodoAPI';
+
 var store = require('configureStore').configure();
 
 store.subscribe(() => {

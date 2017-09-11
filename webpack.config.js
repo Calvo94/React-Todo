@@ -23,6 +23,7 @@ plugins: [
   resolve: {
     modules: [__dirname, 'node_modules','./app/components','./app/api'],
     alias: {
+      app:'app',
       Main:'app/components/Main.jsx',
       applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.jsx',

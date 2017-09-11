@@ -23,7 +23,9 @@ module.exports = {
 
     // Filter by showCompleted
     filterTodos= filterTodos.filter((todo) => {
-      return !todo.completed || showCompleted;
+      var complet=!todo.completed;
+      var tex=todo.text;
+      return complet || showCompleted;
     })
     // Filter by searchText
 

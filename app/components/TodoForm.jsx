@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Add_Todo} from 'actions';
+import {startAddTodo} from 'actions';
 export class TodoForm extends Component {
   onFormSubmit(e) {
       e.preventDefault();
@@ -9,7 +9,7 @@ export class TodoForm extends Component {
 
       if(todo.length>0) {
         this.refs.todo.value='';
-        dispatch(Add_Todo(todo));
+        dispatch(startAddTodo(todo));
       } else {
         this.refs.todo.focus();
       }
